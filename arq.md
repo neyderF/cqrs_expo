@@ -137,7 +137,9 @@ Los clientes consultan saldo e historial desde el portal. BI accede a vistas res
 - Necesidad de idempotencia y buen diseño de eventos.
 
 ## 14. Tecnologías propuestas y acercamiento técnico
-Se considera la implementación sobre NestJS, implementando un monolito modular y se sugiere el uso de los siguientes modelos
+Se considera la implementación sobre NestJS, implementando un monolito modular y se sugiere el uso de los siguientes modelos:
+- [Modelo de Escritura](modelo-de-escritura.md)
+- [Modelo de Lectura](modelo-de-lectura.md)
 
 
 
