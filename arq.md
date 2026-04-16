@@ -1,23 +1,22 @@
-# Caso Arquitectónico: Control de Consumo de Bolsas de Facturas Electrónicas
+# Caso Arquitectónico: Control de planes de consumo de Facturas Electrónicas MX
 
 ## 1. Contexto
-La compañía vende a sus clientes bolsas de consumo de facturas electrónicas. Cada cliente adquiere una bolsa con una cantidad determinada de facturas disponibles. Cada vez que el cliente emite una factura, se debe descontar una unidad de su bolsa. El negocio necesita controlar el consumo, generar alertas, permitir anulaciones y ofrecer trazabilidad completa de los movimientos.
+La compañía dentro de los servicios que presta, ofrece a sus clientes la posibilidad de adquirir planes de consumo de facturas electrónicas. Cada cliente adquiere una bolsa con una cantidad determinada de facturas disponibles. Cada vez que el cliente intente emitir una factura, se debe verificar si tiene facturas disponibles en alguna bolsa y en caso de que las tenga se debe descontar una unidad de su bolsa correspondiente a la factura a consumir. El negocio necesita controlar el consumo, generar alertas  y ofrecer trazabilidad completa de los movimientos.
 
 ## 2. Objetivo
 Diseñar un sistema de control que permita:
-- Crear bolsas a partir del cierre de un proceso comercial en el CRM.
+- Crear bolsas a partir del cierre de un proceso comercial .
+- Crear bolsas a partir de lo vendido por la compañía a traves del portal web
 - Consumir saldo por cada factura emitida.
-- Notificar hitos relevantes de consumo y vencimiento.
+- Notificar hitos relevantes de consumo.
 - Auditar cada movimiento.
-- Permitir anulaciones.
 - Exponer información de consumo al portal de clientes y a herramientas de BI.
 
 ## 3. Actores y sistemas involucrados
-- CRM
+- CRM / portal web
 - Sistema de Control de Bolsas
 - Sistema Interno X de emisión de facturas
 - Servicio de Notificaciones
-- Portal Web de clientes
 - Herramienta de BI
 
 ## 4. Requerimientos funcionales
@@ -25,7 +24,6 @@ Diseñar un sistema de control que permita:
 - Consumir una unidad de bolsa cuando se emita una factura.
 - Generar alertas al 80% de consumo.
 - Generar alertas cuando la bolsa quede agotada.
-- Generar alertas cuando falte una semana para el vencimiento.
 - Permitir anular consumos.
 - Mantener trazabilidad completa de cada movimiento.
 - Exponer saldo e historial al portal y a BI.
@@ -39,7 +37,7 @@ Diseñar un sistema de control que permita:
 
 ## 6. Decisión arquitectónica
 Se propone usar CQRS para separar el modelo de escritura del modelo de lectura.
-Se propone usar Event Sourcing en el lado de escritura para conservar la historia completa de creación, consumo, reverso, agotamiento y vencimiento de cada bolsa.
+Se propone usar Event Sourcing en el lado de escritura para conservar la historia completa de creación, consumo, reverso y agotamiento cada bolsa.
 
 ## 7. Lado de comandos
 ### Comandos

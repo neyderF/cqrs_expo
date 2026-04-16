@@ -98,16 +98,6 @@ En este caso el comando no requiere `bagId` como dato de entrada. El sistema res
 Los eventos son hechos ya ocurridos. Constituyen la fuente de verdad del modelo de escritura.
 
 ### Eventos principales
-- `BolsaCreada`
-- `BolsaActivada`
-- `FacturaConsumida`
-- `ConsumoAnulado`
-- `BolsaConsumidaAl80Porciento`
-- `BolsaAgotada`
-- `BolsaPorVencer`
-- `BolsaVencida`
-
-Para mantener consistencia técnica en el Event Store, estos valores pueden representarse en inglés como:
 - `BagCreated`
 - `BagActivated`
 - `InvoiceConsumed`
