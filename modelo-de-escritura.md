@@ -119,7 +119,6 @@ Los eventos son hechos ya ocurridos. Constituyen la fuente de verdad del modelo 
 | `payload` | `JSONB` | Datos específicos del evento. |
 | `causationId` | `UUID` | Comando o evento que causó este evento. |
 | `correlationId` | `UUID` | Correlación para trazabilidad de extremo a extremo. |
-| `actor` | `VARCHAR(100)` | Usuario o sistema origen. |
 | `sourceSystem` | `VARCHAR(100)` | Sistema que originó la acción. |
 
 ### Significado de `eventType`, `causationId` y `correlationId`
@@ -161,7 +160,6 @@ Es la tabla principal de persistencia del write side. Guarda la secuencia de hec
 | `occurred_at` | `TIMESTAMPTZ` | Fecha y hora del evento. |
 | `causation_id` | `UUID` | Identificador del comando o evento causante. |
 | `correlation_id` | `UUID` | Identificador de correlación del flujo. |
-| `actor` | `VARCHAR(100)` | Actor origen. |
 | `source_system` | `VARCHAR(100)` | Sistema origen. |
 
 En este caso, el `aggregate_id` corresponde al `bagId` de la bolsa consumida o afectada.
@@ -178,7 +176,6 @@ CREATE TABLE events (
   occurred_at TIMESTAMPTZ NOT NULL,
   causation_id UUID NULL,
   correlation_id UUID NULL,
-  actor VARCHAR(100) NULL,
   source_system VARCHAR(100) NULL,
   UNIQUE (aggregate_id, version)
 );
